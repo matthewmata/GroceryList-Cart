@@ -9,6 +9,9 @@ const Products = connection.define('products', {
   price: {
     type: Sequelize.INTEGER,
     allowNull: false
+  },
+  quantity: {
+    type: Sequelize.INTEGER
   }},
   {timestamps: false}
 );
