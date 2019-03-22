@@ -50,28 +50,31 @@ class App extends React.Component {
     })
   }
 
-  salesHandler(products) {
+  salesHandler() {
     axios
       .get('/api/sales')
-      .data((data)=> {
-        console.log(data);
-        return data;
-      })
       .then((data) => {
+        console.log(data);
         let newProducts = [...this.state.products];
         for(let i = 0; i < newProducts.length; i++) {
-          newProducts[i].quantity += data.data.quantity;
-          if (!newProducts[i].quantity) {
+          if (!newProducts[i].quantity && !data.data[i].quantity) {
             continue;
-          } else {
+          }
+          else {
+            newProducts[i].quantity += data.data[i].quantity;
             axios
-              .put('/api/sales', { name : products[i].name, quantity : products[i].quantity})
+              .put('/api/sales', { name : newProducts[i].name, quantity : newProducts[i].quantity})
               .then(() => {console.log('success')})
               .catch((err) => console.log(err))
           }
         }
       })
-    }
+      .then(() => this.getProducts())
+      .then(() => {
+        this.setState({
+          clicked: false
+        })
+      })
   }
 
   render() {
@@ -95,7 +98,7 @@ class App extends React.Component {
               <Checkout cart={this.state.products}/>
             </div>
             <div>
-              <button onClick={() => this.salesHandler(this.state.products)}>Purchase</button> 
+              <button onClick={() => this.salesHandler()}>Purchase</button> 
             </div>
           </div>
         )}

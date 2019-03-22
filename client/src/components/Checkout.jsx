@@ -7,7 +7,7 @@ const Checkout = (props) => {
   for(let item of props.cart) {
     totalCost += item.quantity * item.price
   }
-  console.log(props.cart)
+  
   return (
     <div>
       {props.cart.map((item, index) => <CheckoutEntry key={index} item={item}/>)}
