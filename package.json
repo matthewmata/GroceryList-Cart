@@ -1,22 +1,23 @@
 {
-  "name": "WhoTube",
+  "name": "GroceryList-Cart",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "nodemon server/index.js",
+    "build" : "webpack -w"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matthewmata/WhoTube.git"
+    "url": "git+https://github.com/matthewmata/GroceryList-Cart.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/matthewmata/WhoTube/issues"
+    "url": "https://github.com/matthewmata/GroceryList-Cart/issues"
   },
-  "homepage": "https://github.com/matthewmata/WhoTube#readme",
+  "homepage": "https://github.com/matthewmata/GroceryList-Cart#readme",
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
@@ -25,5 +26,17 @@
     "i": "^0.3.6",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.18.10",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "sequelize": "^5.1.0"
   }
 }
